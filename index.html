@@ -1,28 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
 
-    <title>Hello!</title>
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
-  </head>  
-  <body>
-    <h1>Hi there!</h1>
-    
-    <p>
-      I'm your cool new webpage. Made with <a href="https://glitch.com">Glitch</a>!
-    </p>
+<link rel="shortcut icon" type="image/png" href="https://cdn.glitch.com/6c4467e4-305a-4627-95b2-acfca2d590e0%2Fpixdrawing_icon.png?v=1582148630731"/>
+<!-- ************** PIXEL DRAWING APP - CREATED BY Y_S - 11.11.2019 ************** -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+<style> body {padding: 0; margin: 0; position:fixed;} </style>
+<script>
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js" defer></script>
-  </body>
+let bubbles = [];
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  frameRate(33);
+}
+
+function mouseMoved() {
+  let r = random(-5,10);
+  let b = new Bubble(mouseX, mouseY, r);
+  bubbles.push(b);
+}
+function mouseDragged() {
+  let r = random(0,10);
+  let b = new Bubble(mouseX, mouseY, r);
+  bubbles.push(b);
+}
+function draw() {
+  background("#202020");
+
+  for (let bubble of bubbles) {
+    bubble.move();
+    bubble.show();
+  }
+
+  for (let i = 0; i < bubbles.length; i++) {
+    bubbles[i].move();
+    bubbles[i].show();
+  }
+}
+
+class Bubble {
+  constructor(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+  }
+
+  move() {
+    this.x = this.x + random(-5, 5);
+    this.y = this.y + random(-5, 5);
+  }
+
+  show() {
+    stroke(255);
+    strokeWeight(1);
+    noFill()
+    ellipse(this.x, this.y, this.r * 2);
+  }
+}
+
+
+</script>
+<title>P5.js simple animated interactive effect - javascript</title>
+</head>
+<body>
+
+</body>
 </html>

@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+    <script>
+
+
+function setup(){
+  createCanvas(displayWidth ,displayHeight,WEBGL);
+  background(0);
+  //fullScreen();
+  frameRate (15);
+  var x=random(0,500);
+}
+
+function draw(){
+shape();
+}
+
+function shape(){
+
+  var x=random(0,100);
+   x = x*cos(PI)-mouseX/2;
+  var y=(random(0,1.5)*(PI));
+  camera(mouseX, mouseY /2, (height/2) / tan(PI/3), width/2, height/2, 0, 0, 1, 0);
+  //  camera(mouseX, x, (height/2) / x, width/2, height/2, y, 0, 1, 0);
+  background(0);
+  translate(width/2, height/2, 0);
+  strokeWeight(0.8);
+  stroke(255,255,255);
+  if(millis()%7===0){stroke(y,x,x);}
+  if(millis()%13===0){stroke(x,y,x);}
+  if(millis()%27===0){stroke(y,x,y);}
+   box(x,x,x);
+   //point(x,x,x);
+   sphere(random(1,5));
+   rotateX(PI/2);
+   rotateZ(-PI/6);
+   box(100);
+   noFill();
+   beginShape();
+   vertex(-50, -50, -50);
+   vertex( 50, -50, -50);
+   vertex( 0, 0, 50);
+   vertex( 50, -50, -50);
+   vertex( 50, 50, -50);
+   vertex( 0, 0, 50);
+   vertex( 50, 50, -50);
+   vertex(-50, 50, -50);
+   vertex( 0, 0, 50);
+   vertex(-50, 50, -50);
+   vertex(-50, -50, -50);
+   vertex( 0, 0, 50);
+
+   vertex(50, 50, 50);
+   vertex( -50, 50, 50);
+   vertex( 0, 0, -50);
+   vertex( -50, 50, 50);
+   vertex( -50, -50, 50);
+   vertex( 0, 0, -50);
+   vertex( -50, -50, 50);
+   vertex(50, -50, 50);
+   vertex( 0, 0, -50);
+   vertex(50, -50, 50);
+   vertex(50, 50, 50);
+   vertex( 0, 0, -50);
+   vertex (-50,-50,-50);
+   vertex(50,-50,-50);
+   vertex(0,0,50);
+
+
+   endShape();
+}
+
+
+
+    </script>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        position: fixed;
+      }
+    </style>
+
+    <title>My first 3d animation</title>
+  </head>
+  <body></body>
+</html>

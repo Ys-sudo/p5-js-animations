@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+ <script>
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background(40);
+  frameRate(33);
+}
+
+function draw() {
+
+  let startime = millis();
+  let x = random(0, windowWidth);
+  let y = random(0, windowHeight);
+  let z = random(0,50);
+  let u = random(0, windowWidth);
+  let v = random(0, windowHeight);
+  let q = random(0, windowWidth);
+  let a = random(0, windowHeight);
+  console.log(startime);
+
+  let r = random(250,255);
+  let g =random(0,200);
+  let b= random(0,250);
+
+  let p = random(2,20);
+  let i =random(10,30);
+  let f= random(1,50);
+
+  //background(0);
+  noStroke();
+
+
+  noStroke();
+  fill(r,g,b);
+  rect(x,y,p,p);
+
+
+  noStroke();
+  rect(u,v,f,f);
+
+
+  noStroke();
+  rect(q,a,i,i);
+
+
+}
+
+
+ </script>
+    <style> body {padding: 0; margin: 0; position:fixed;} </style>
+
+        <title>My first 3d animation</title>
+    </head>
+    <body>
+
+    </body>
+</html>
